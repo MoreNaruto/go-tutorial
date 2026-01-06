@@ -1,71 +1,99 @@
 # Go / Golang Tutorial Generation Guidelines
 
-You are an AI assistant helping generate a Go (Golang) tutorial repository intended for **Beginner**, **Intermediate**, and **Advanced** developers.
+You are an AI assistant helping generate a Go (Golang) tutorial repository composed of **multiple isolated sub-Go projects**.
+
+Each sub-project focuses on a **specific core area of Go** and must be runnable and testable **independently**.
 
 The output must be **GitHub-ready**, idiomatic Go, and production-oriented.
 
 ---
 
-## 🎯 Goals
+## 🎯 Repository Philosophy
 
-This repository should:
-- Teach Go progressively (Beginner → Intermediate → Advanced)
-- Follow Go best practices and idioms
-- Include clear explanations and runnable examples
-- Include unit tests for all non-trivial logic
-- Demonstrate commonly used Go libraries and patterns
+This repository is a **collection of standalone Go projects**, not a single monolithic application.
+
+Each sub-project:
+- Represents a focused Go concept or domain
+- Has its **own `go.mod`**
+- Can be run and tested in isolation
+- Does **not** depend on other sub-projects
+- Uses a project structure appropriate to its scope
+
+Examples of focus areas (non-exhaustive):
+- Language fundamentals
+- Concurrency patterns
+- HTTP servers
+- REST APIs
+- Middleware
+- WebSockets
+- Testing strategies
+- Clean Architecture
+- Performance & profiling
 
 ---
 
 ## 🧠 Project Structure Guidance (IMPORTANT)
 
-**Do NOT assume or reuse a predefined repository structure.**
+**Do NOT enforce a global repository structure.**
 
 Instead:
-- Choose an idiomatic Go project structure appropriate for the example
-- Prefer simplicity over excessive layering
-- Follow Go community conventions (`cmd/`, `internal/`, flat packages when appropriate)
-- Let the **problem domain drive the structure**, not frameworks
-- Explain the chosen structure in the README
+- Treat each sub-project as its own Go module
+- Choose an idiomatic structure per sub-project
+- Prefer simplicity and clarity
+- Use `cmd/`, `internal/`, or flat layouts only when appropriate
+- Avoid over-structuring small examples
+- Explain structural decisions in each sub-project’s README
 
-Examples of acceptable approaches (non-exhaustive):
-- Single-module with `main.go` for beginner examples
-- `cmd/<app>` + `internal/` for intermediate/advanced services
-- Flat packages for libraries
-- Feature-based organization when appropriate
+⚠️ **Do not share packages or code between sub-projects**
 
-⚠️ **Do not hardcode a structure across all tutorials**  
-Each tutorial may choose a different structure if it improves clarity.
+Isolation is intentional and required.
+
+---
+
+## 🧩 Sub-Project Requirements
+
+Each sub-Go project **must** include:
+
+- Its own `go.mod`
+- A clear entry point (when applicable)
+- A README.md explaining:
+    - The concept being taught
+    - Why this project exists
+    - Why the chosen structure makes sense
+    - How to run the project
+    - How to run tests
+- Unit tests for all non-trivial logic
+- Inline code comments explaining intent and design decisions
 
 ---
 
 ## 🧠 Educational Levels
 
+Each sub-project should be tagged or described as:
+
 ### Beginner
-- Go syntax and structure
-- `main` package
-- Variables, structs, interfaces
+- Core language constructs
 - Error handling
-- Basic concurrency (`goroutines`, `channels`)
-- Standard library only
+- Structs and interfaces
+- Basic concurrency
+- Standard library focus
 
 ### Intermediate
 - HTTP servers
-- REST APIs
 - Routing (Gin or Chi)
-- Context usage
+- Context propagation
 - Dependency injection
+- Testing with interfaces
 - Table-driven tests
-- Mocking with interfaces
 
 ### Advanced
-- Clean Architecture / Hexagonal patterns
+- Clean / Hexagonal Architecture
 - WebSockets
-- Middleware
+- Middleware chains
 - Graceful shutdown
 - Observability (logging, metrics)
+- Concurrency patterns (fan-in/fan-out, worker pools)
 - Performance considerations
-- Concurrency patterns (worker pools, fan-in/fan-out)
 
 ---
 
@@ -76,9 +104,9 @@ All non-trivial logic **must include unit tests**.
 Testing rules:
 - Use Go’s standard `testing` package
 - Prefer table-driven tests
+- Mock dependencies via interfaces
 - Avoid global state
-- Mock dependencies using interfaces (not monkey patching)
-- Tests must be runnable with:
+- Tests must pass with:
 
 ```bash
 go test ./...
