@@ -102,14 +102,6 @@ All code in this repository:
 - Demonstrates real-world patterns
 - Is ready for production use (with appropriate scaling considerations)
 
-## 🤝 Contributing
-
-This is an educational repository. Each sub-project is designed to be self-contained and focused on teaching specific concepts.
-
-## 📄 License
-
-See [LICENSE](LICENSE) file for details.
-
 ## 🔗 Additional Resources
 
 - [Official Go Documentation](https://go.dev/doc/)
