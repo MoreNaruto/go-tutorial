@@ -211,6 +211,15 @@ var (
 )
 ```
 
+Common Sentinel Errors:
+
+```
+io.EOF
+sql.ErrNoRows
+context.Canceled
+context.DeadlineExceeded
+```
+
 ### Error Variables
 
 Package-level error variables:
