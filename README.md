@@ -33,12 +33,14 @@ This repository is a **collection of standalone Go projects**, not a single mono
 
 ### Advanced Level
 
-| Project | Focus | Key Concepts |
-|---------|-------|--------------|
-| **[09-clean-architecture](09-clean-architecture/)** | Architecture | Hexagonal/Clean architecture, dependency injection |
-| **[10-websockets](10-websockets/)** | Real-time Communication | WebSocket server, broadcasting, connection management |
-| **[11-middleware-chain](11-middleware-chain/)** | HTTP Middleware | Custom middleware, logging, authentication, recovery |
-| **[12-concurrency-patterns](12-concurrency-patterns/)** | Advanced Concurrency | Worker pools, fan-in/fan-out, pipelines |
+| Project                                                 | Focus                      | Key Concepts                                               |
+|---------------------------------------------------------|----------------------------|------------------------------------------------------------|
+| **[09-clean-architecture](09-clean-architecture/)**     | Architecture               | Hexagonal/Clean architecture, dependency injection         |
+| **[10-websockets](10-websockets/)**                     | Real-time Communication    | WebSocket server, broadcasting, connection management      |
+| **[11-middleware-chain](11-middleware-chain/)**         | HTTP Middleware            | Custom middleware, logging, authentication, recovery       |
+| **[12-concurrency-patterns](12-concurrency-patterns/)** | Advanced Concurrency       | Worker pools, fan-in/fan-out, pipelines                    |
+| **[13-sync-mutex](13-sync-mutex/)**                     | Lock / Unlock              | Avoid race conditions                                      |
+| **[14-testing-frameworks](14-testing-frameworks/)**     | Popular testing frameworks | Testing frameworks: testify, ginkgo, httpexpect, benchmark |
 
 ## 🚀 Getting Started
 
